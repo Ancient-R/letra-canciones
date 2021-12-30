@@ -1,9 +1,34 @@
 import React from 'react';
 
-const Form = () => {
+const Form = ({ formValues, setFormValues, setError, setFormSubmit }) => {
+
+    const { artist, song } = formValues;
+
+    const handleInputChange = e => {
+        setFormValues({
+            ...formValues,
+            [e.target.name]: e.target.value
+        });
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault();
+
+        if( artist.length < 4 || song.length < 4 ){
+            setError( true );
+
+        }else{
+            setError(false)
+        }
+        setFormSubmit( true );
+
+    }
 
     return (
-        <form className='form'>
+        <form 
+            className='form'
+            onSubmit={ handleSubmit }
+        >
             <div className='form__field'>
                 <label className='form__label'>Artista: </label>
 
@@ -11,6 +36,9 @@ const Form = () => {
                     type="text"
                     className='form__input'
                     name="artist"
+                    value={ artist }
+                    onChange={ handleInputChange }
+
                 />
             </div>
 
@@ -21,6 +49,8 @@ const Form = () => {
                     type="text"
                     className='form__input'
                     name="song"
+                    value={ song }
+                    onChange={ handleInputChange }
                 />
             </div>
 
