@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Form = () => {
+
     return (
         <form className='form'>
             <div className='form__field'>
@@ -19,7 +20,7 @@ const Form = () => {
                 <input 
                     type="text"
                     className='form__input'
-                    name="artist"
+                    name="song"
                 />
             </div>
 
