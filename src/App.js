@@ -34,15 +34,18 @@ function App() {
 
   useEffect( () => {
     
-    const consultAPI = () => {
+    const consultAPI = async () => {
       setFormSubmit(false);
-      setArtistInfo( ArtistData( artist ) );
-      setLetterInfo( LetterData( artist, song ) );
-      
+      const dataArtist = await ArtistData( artist );
+      const dataLetter = await LetterData( artist, song );
+      setArtistInfo( dataArtist[0] )
+      setLetterInfo( dataLetter )
+      setFetch( true )
     }
     
     if( !error && formSubmit ) consultAPI();
 
+    // eslint-disable-next-line
   }, [ formSubmit, error ]);
 
   return (

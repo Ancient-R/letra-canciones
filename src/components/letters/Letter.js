@@ -1,10 +1,12 @@
 import React from 'react';
 
-const Letter = () => {
+const Letter = ({ letterInfo }) => {
+    
     return (
-        <div className="letter__container">
+      <div className="letter__container">
           <h1 className="letter__title">Letra de canción</h1>
-        </div>
+          <pre>{ letterInfo} </pre>
+      </div>
     );
 }
  
