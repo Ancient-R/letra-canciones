@@ -23,6 +23,15 @@ code {
     monospace;
 }
 
+/* Utilitty class */
+.image{
+  width: 100%;
+  display: block;
+}
+
+.text-center{
+  text-align: center;
+}
 /* Estilos de Header.js */
 .header{
   background-color: var(---primary-color);
@@ -96,6 +105,7 @@ code {
   border-radius: 5px;
   width: 200px;
   margin-top: 10px;
+  cursor: pointer;
 }
 
 /* Estilos de container en App.js */
@@ -108,11 +118,18 @@ code {
 .info__container,
 .letter__container{
   width: 100%;
+  padding: 1rem;
+  overflow: auto;
+}
+
+.letter__container{
+  inline-size: auto;
+  overflow-wrap: break-word;
 }
 
 .info__title,
 .letter__title{
-  width: 80%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -160,6 +177,7 @@ code {
 @media screen and (min-width: 768px) {
   .container{
     flex-direction: row;
+    padding: 2rem;
   }
 
   .title::before{
@@ -182,6 +200,12 @@ code {
 
   .letter__title{
     font-size: 40px;
+  }
+
+  .info__container,
+  .letter__container{
+    width: 50%;
+    height: 1200px;
   }
   
 }
